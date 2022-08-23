@@ -17,7 +17,15 @@ Pet.prototype.walk = function () {
     if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
         this.fitness += 4;
     } else {
-        this.fitness = 10;
+        this.fitness = MAXIMUM_FITNESS;
+    }
+}
+
+Pet.prototype.feed = function () {
+    this.hunger -= 3;
+
+    if (this.hunger < 0) {
+        this.hunger = 0;
     }
 }
 module.exports = Pet;
