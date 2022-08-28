@@ -24,7 +24,7 @@ Pet.prototype.growUp = function () {
     if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(')
     }
-    this.age += 1;
+    this.age++;
     this.hunger += 5;
     this.fitness -= 3;
 }
@@ -45,7 +45,7 @@ Pet.prototype.feed = function () {
         throw "Your pet is no longer alive :("
     }
     if (this.hunger < 3) {
-        return this.hunger = 0
+        return this.hunger = MIN_HUNGER
     } else {
         return this.hunger -= 3;
     }
@@ -62,5 +62,9 @@ Pet.prototype.checkUp = function () {
     } else {
         return `I feel great!`;
     }
+}
+
+Pet.prototype.haveBaby = function (child) {
+    this.children = [child];
 }
 module.exports = Pet;

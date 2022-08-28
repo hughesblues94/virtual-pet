@@ -103,3 +103,22 @@ describe('check up', () => {
     })
 })
 
+describe('adopt a baby', () => {
+    it("creates a new child in the parent object", () => {
+        const parent = new Pet("Boris");
+        const child = new Pet("Dorothy");
+
+        parent.haveBaby(child)
+
+        expect(parent.children).toBeInstanceOf(Array)
+    })
+    it("returns the child object", () => {
+        const parent = new Pet("Boris");
+        const child = new Pet("Dorothy");
+
+        parent.haveBaby(child)
+
+        expect(parent.children).toEqual([{ name: `Dorothy`, age: 0, hunger: 0, fitness: 10 }])
+    })
+})
+
